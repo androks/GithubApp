@@ -1,7 +1,6 @@
 package com.androks.githubapp.data.network
 
-import com.androks.githubapp.data.network.GithubAuthInterceptor
-import com.androks.githubapp.data.network.NetworkDataSource
+import com.androks.githubapp.data.network.interceptor.GithubAuthInterceptor
 import com.apollographql.apollo.ApolloClient
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -20,5 +19,5 @@ val networkModule = module {
             .okHttpClient(get())
             .build()
     }
-    single { NetworkDataSource(get()) }
+    single<NetworkDataSource> { NetworkDataSourceImpl(get()) }
 }

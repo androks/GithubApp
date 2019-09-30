@@ -10,9 +10,14 @@ class RepositoryListViewModel(
     private val repositoryRepository: RepositoriesRepository
 ) : BaseViewModel<RepositoryListViewModel.ViewState, RepositoryListViewModel.Action>(ViewState()) {
 
+    companion object {
+        private const val TOPIC = "android"
+        private const val LIMIT = 10
+    }
+
     fun loadList() {
         viewModelScope.launch {
-            repositoryRepository.getRepositories()
+            repositoryRepository.getRepositories(TOPIC, LIMIT)
                 .ifSuccess {
                     sendAction(Action.ListLoadingSuccess(it))
                 }

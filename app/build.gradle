@@ -20,6 +20,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    applicationVariants.all { variant ->
+        variant.buildConfigField "String", "GITHUB_KEY", '"9743e789d1e99423f044185f6c9a76c17d146428"'
+    }
 }
 
 dependencies {

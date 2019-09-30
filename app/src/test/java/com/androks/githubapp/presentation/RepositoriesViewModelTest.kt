@@ -41,11 +41,11 @@ class RepositoriesViewModelTest {
 
     @Test
     fun `execute getRepositories`() {
-        coEvery { repositoriesRepository.getRepositories() } returns Success(emptyList())
+        coEvery { repositoriesRepository.getRepositories(any(), any()) } returns Success(emptyList())
 
         repositoriesViewModel.loadList()
 
-        coVerify(exactly = 1) { repositoriesRepository.getRepositories() }
+        coVerify(exactly = 1) { repositoriesRepository.getRepositories(any(), any()) }
     }
 
     @Test
@@ -62,7 +62,7 @@ class RepositoriesViewModelTest {
 
     @Test
     fun `right state when getRepositories empty`() {
-        coEvery { repositoriesRepository.getRepositories() } returns Success(emptyList())
+        coEvery { repositoriesRepository.getRepositories(any(), any()) } returns Success(emptyList())
 
         repositoriesViewModel.loadList()
 
@@ -79,8 +79,8 @@ class RepositoriesViewModelTest {
     @Test
     fun `right state when getRepositories returns list`() {
         val repositories =
-            listOf(RepositoryModel().apply { id = 123 }, RepositoryModel().apply { id = 352 })
-        coEvery { repositoriesRepository.getRepositories() } returns Success(repositories)
+            listOf(RepositoryModel().apply { id = "sgd" }, RepositoryModel().apply { id = "sdg" })
+        coEvery { repositoriesRepository.getRepositories(any(), any()) } returns Success(repositories)
 
         repositoriesViewModel.loadList()
 
@@ -96,7 +96,7 @@ class RepositoriesViewModelTest {
 
     @Test
     fun `right state when getRepositories throw Exception`() {
-        coEvery { repositoriesRepository.getRepositories() } returns Failure()
+        coEvery { repositoriesRepository.getRepositories(any(), any()) } returns Failure()
 
         repositoriesViewModel.loadList()
 
