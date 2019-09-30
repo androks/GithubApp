@@ -1,5 +1,6 @@
 package com.androks.githubapp.data.network
 
+import com.androks.githubapp.BuildConfig
 import com.androks.githubapp.data.network.interceptor.GithubAuthInterceptor
 import com.apollographql.apollo.ApolloClient
 import okhttp3.OkHttpClient
@@ -15,7 +16,7 @@ val networkModule = module {
     }
     single {
         ApolloClient.builder()
-            .serverUrl("https://api.github.com/graphql")
+            .serverUrl(BuildConfig.GITHUB_URL)
             .okHttpClient(get())
             .build()
     }

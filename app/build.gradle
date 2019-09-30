@@ -22,7 +22,8 @@ android {
     }
 
     applicationVariants.all { variant ->
-        variant.buildConfigField "String", "GITHUB_KEY", '"9743e789d1e99423f044185f6c9a76c17d146428"'
+        variant.buildConfigField "String", "GITHUB_KEY", '"4f6cf6a3c7e34e5f3678db7174125931df0a35a0"'
+        variant.buildConfigField "String", "GITHUB_URL", '"https://api.github.com/graphql"'
     }
 }
 
