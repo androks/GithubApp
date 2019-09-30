@@ -1,0 +1,28 @@
+fragment baseRepository on Repository {
+    id,
+    name,
+    description,
+    forkCount,
+    stargazers {
+        totalCount
+    }
+    primaryLanguage {
+        name
+        color
+    }
+    owner {
+        login
+    }
+}
+
+query SearchRepositories($q: String!, $limit: Int!) {
+    search(type: REPOSITORY, query: $q, first: $limit) {
+        nodes {
+            ...baseRepository
+        }
+        pageInfo {
+            hasNextPage
+            endCursor
+        }
+    }
+}

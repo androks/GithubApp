@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GithubApp</string>
+    <string name="title_feature_repository">Feature repository</string>
+    <string name="data_failed_to_load">Data failed to load</string>
+</resources>
