@@ -6,28 +6,25 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?selectableItemBackground"
         android:clickable="true"
         android:focusable="true"
+        android:orientation="vertical"
         android:padding="16dp">
 
         <TextView
             android:id="@+id/nameTextView"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             tools:text="Repository" />
 
         <TextView
             android:id="@+id/descTextView"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="@+id/nameTextView"
@@ -35,51 +32,45 @@
             app:layout_constraintTop_toBottomOf="@id/nameTextView"
             tools:text="Description" />
 
-        <TextView
-            android:id="@+id/langTextView"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/language_frame_bg"
-            android:textColor="@android:color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/descTextView"
-            app:layout_constraintVertical_bias="1.0"
-            tools:text="Kotlin" />
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/startsTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:drawableStart="@drawable/ic_full_star_16dp"
-            android:drawablePadding="8dp"
-            android:gravity="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/forksTextView"
-            app:layout_constraintHorizontal_bias="1"
-            app:layout_constraintStart_toEndOf="@+id/langTextView"
-            app:layout_constraintTop_toBottomOf="@+id/descTextView"
-            app:layout_constraintVertical_bias="1.0"
-            tools:text="312" />
+            <TextView
+                android:id="@+id/langTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/language_frame_bg"
+                android:textColor="@android:color/white"
+                tools:text="Kotlin" />
 
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
 
-        <TextView
-            android:id="@+id/forksTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"
-            android:drawableStart="@drawable/ic_fork_16dp"
-            android:drawablePadding="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/descTextView"
-            app:layout_constraintVertical_bias="1.0"
-            tools:text="110" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/startsTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:drawableStart="@drawable/ic_full_star_16dp"
+                android:drawablePadding="8dp"
+                android:gravity="center"
+                tools:text="312" />
+
+            <TextView
+                android:id="@+id/forksTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:drawableStart="@drawable/ic_fork_16dp"
+                android:drawablePadding="8dp"
+                tools:text="110" />
+        </LinearLayout>
+    </LinearLayout>
 </androidx.cardview.widget.CardView>
